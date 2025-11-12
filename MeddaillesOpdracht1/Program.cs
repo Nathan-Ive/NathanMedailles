@@ -10,13 +10,20 @@ namespace MeddaillesOpdracht1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello user, what is your name?");
-            String naamInput = Console.ReadLine();
-            String gebruikerNaam = naamInput;
-            Console.WriteLine("Welcome " + gebruikerNaam + " can you fill in your age next?");
-            String ageInput = Console.ReadLine();
+            String naamInput;
+            String gebruikerNaam;
+            String ageInput;
             int gebruikerAge;
-            Boolean ageNumberCheck;
+
+
+
+            Console.WriteLine("Hello user, what is your name?");
+            naamInput = Console.ReadLine();
+            gebruikerNaam = naamInput;
+            
+            Console.WriteLine("Welcome " + gebruikerNaam + " can you fill in your age next?");
+            ageInput = Console.ReadLine();
+            
             if (!Int32.TryParse(ageInput, out gebruikerAge)) {
                 Console.WriteLine(gebruikerNaam + ", please try and input an age exclusively using numbers. Thank you.");
             }
