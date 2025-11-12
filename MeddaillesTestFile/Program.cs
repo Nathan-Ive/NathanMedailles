@@ -10,6 +10,11 @@ namespace MeddaillesTestFile
     {
         static void Main(string[] args)
         {
+            int[] coolNumbers = { 24, 48, 96, 192, 384 };
+            Console.WriteLine("Hello world!");
+            string input = Console.ReadLine();
+            Console.WriteLine(coolNumbers[0]);
+            
         }
     }
 }
