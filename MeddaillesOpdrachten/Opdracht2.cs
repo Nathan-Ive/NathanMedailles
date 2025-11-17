@@ -17,6 +17,7 @@ namespace MeddaillesOpdrachten
             Boolean roomOneEnter = false; // Represents the left door.
             Boolean roomTwoEnter = false; // Represents the middle door.
             Boolean roomThreeEnter = false; // Represents the right door.
+            Boolean insideOfRoom = false; // Checks whether or not the player has finally entered a room.
             Boolean gameWin = false; // The successful end of the game, whether that's good, bad, or neutral.
             Boolean gameLose = false; // The failure of the game. 
 
@@ -32,15 +33,19 @@ namespace MeddaillesOpdrachten
             String currentDirection = "Null";
             String textSeperator = "________________________________________________________________________________________________________________________";
 
-
+            Console.WriteLine("When presented with a choice, input one of the three written options.");
+            Console.WriteLine("If you want your decision to be registered properly, either fully type in lowercase or only capitalize the first letter in your choice.");
+            Console.WriteLine("Write your decision in any other way, or write a invalid decision and you will be asked to write your decision again until you write it properly.");
+            Console.WriteLine("If there is no option, like now, press Enter to continue to the next line of text.");
+            Console.WriteLine("It doesn't matter whether you type something or not in these cases.");
+            Console.ReadLine();
 
             while (!gameWin || !gameLose) {
-
-
                 while (startingRoom)
                 {
+                    Console.Clear();
                     Console.WriteLine("You enter a room, faced with three doors you think of which one to open.");
-                    Console.WriteLine("The 'left' one, the 'middle' one, or the 'right' one?.");
+                    Console.WriteLine("The [left] one, the [middle] one, or the [right] one?.");
                     Console.WriteLine("");
                     Console.Write("Input your direction here: ");
 
@@ -75,7 +80,7 @@ namespace MeddaillesOpdrachten
                         default:
                             Console.Clear();
                             Console.WriteLine("You stand there not moving in any direction...");
-                            Console.WriteLine("input either 'left', 'right', or 'middle' to approach one of the rooms.");
+                            Console.WriteLine("input either [left], [right], or [middle] to approach one of the rooms.");
                             doorApproached = false;
                             startingRoom = true;
                             Console.WriteLine(textSeperator);
@@ -86,7 +91,7 @@ namespace MeddaillesOpdrachten
                 }
 
                 while (doorApproached) {
-                    Console.WriteLine("Having approached the " + currentDirection + " door. Will you inspect it, go back, or enter?");
+                    Console.WriteLine("Having approached the " + currentDirection + " door. Will you [inspect] it, [go back], or [enter]?");
                     Console.WriteLine("");
                     Console.Write("Input your action here: ");
                     secondChoice = Console.ReadLine();
@@ -127,6 +132,7 @@ namespace MeddaillesOpdrachten
                             break;
                         case "go back":
                         case "Go back":
+                        case "Go Back":
                             Console.Clear();
                             Console.WriteLine("You take a step back, returning to your starting position facing three doors.");
                             Console.WriteLine(textSeperator);
@@ -165,7 +171,8 @@ namespace MeddaillesOpdrachten
                         roomOneEnter = true;
                         roomTwoEnter = false;
                         roomThreeEnter = false;
-                        thirdChoice = Console.ReadLine();
+                        enteringDoor = false;
+                        insideOfRoom = true;
                     }
                     else if (currentDirection == "middle") //A suspensful and slightly unsettling room that's actually not all that special.
                     {
@@ -176,7 +183,8 @@ namespace MeddaillesOpdrachten
                         roomOneEnter = false;
                         roomTwoEnter = true;
                         roomThreeEnter = false;
-                        thirdChoice = Console.ReadLine();
+                        enteringDoor = false;
+                        insideOfRoom = true;
                     }
                     else if (currentDirection == "right") // A seemingly neutral room that ends up being far better than you first realize.
                     {
@@ -185,13 +193,41 @@ namespace MeddaillesOpdrachten
                         roomOneEnter = false;
                         roomTwoEnter = false;
                         roomThreeEnter = true;
-                        thirdChoice = Console.ReadLine();
+                        enteringDoor = false;
+                        insideOfRoom = true;
                     }
-
-
-
                 }
+                while (insideOfRoom) {
+                    if (roomOneEnter) {
+                        Console.WriteLine("");
+                        Console.WriteLine(textSeperator);
+                        Console.WriteLine("");
+                        Console.WriteLine("Still having your eyes closed in an attempt to hold onto this moment, you're left with few options.");
+                        Console.WriteLine("You can either [open eyes], finally taking this magnificent room in.");
+                        Console.WriteLine("You could [step forward], going further into this room while keeping yourself blind to what's inside.");
+                        Console.WriteLine("On the other hand, moving foward without seeing is dangerous. So you might want to [go along the walls] and feel your way through instead.");
+                        Console.WriteLine("");
+                        Console.Write("You choose to: ");
+                        thirdChoice = Console.ReadLine();
 
+                        switch (thirdChoice) 
+                        {
+                            case "open eyes":
+                            case "Open eyes":
+                            case "open my eyes":
+                            case "Open my eyes":
+
+                                break;
+                            case "step forward":
+                            case "Step forward":
+
+                                break;
+                            case "go along the walls":
+                            case "Go along the walls":
+                                break;
+                        }
+                    }
+                }
 
 
             }
