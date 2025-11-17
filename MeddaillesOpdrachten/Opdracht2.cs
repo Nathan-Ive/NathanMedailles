@@ -34,7 +34,7 @@ namespace MeddaillesOpdrachten
 
 
 
-            while (!gameWin && !gameLose) {
+            while (!gameWin || !gameLose) {
 
 
                 while (startingRoom)
@@ -156,7 +156,7 @@ namespace MeddaillesOpdrachten
                 while (enteringDoor) {
                     if (currentDirection == "left") //A seemingly great room that's actually dangerous.
                     {
-                        Console.WriteLine("The high quality of the left door, the satisfying turn of the knob, the comforting creak of the opening door.");
+                        Console.WriteLine("The high quality of the left door, the satisfying turn of the knob, the comforting creak it creates.");
                         Console.WriteLine("Without even having entered this room, you can tell that there's something special about it.");
                         Console.WriteLine("");
                         Console.WriteLine("You keep your eyes closed as you open the door, wanting to be lost in the suspense of entering the room behind it."); 
