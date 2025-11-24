@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MeddaillesOpdracht2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -24,7 +25,13 @@ namespace MeddaillesOpdrachten
             Opdracht10 task10 = new Opdracht10();
             Opdracht11 task11 = new Opdracht11();
 
-            task1.Start();
+
+            KlasOpdrachtFuncties taskExtra1 = new KlasOpdrachtFuncties();
+            KlasOpdrachtArraysAndLists taskExtra2 = new KlasOpdrachtArraysAndLists();
+
+            //taskExtra2.Start();
+
+            task3.Start();
 
         }
     }
