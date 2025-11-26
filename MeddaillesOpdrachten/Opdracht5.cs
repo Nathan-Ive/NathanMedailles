@@ -50,7 +50,7 @@ namespace MeddaillesOpdrachten
                     Console.WriteLine("");
                     for (int i = 0; i <= _userDesiredAmount; i++)
                     {
-                        Console.WriteLine(_userDesiredNumber * i);
+                        Console.WriteLine(_userDesiredNumber + " x " + i + " = " + _userDesiredNumber * i);
                     }
 
                     _runningSecondPhase = false;
