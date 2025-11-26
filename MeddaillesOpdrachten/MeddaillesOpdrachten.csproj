@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="KlasOpdrachtArraysAndLists.cs" />
     <Compile Include="KlasOpdrachtFuncties.cs" />
+    <Compile Include="NotesAndStuff.cs" />
     <Compile Include="Opdracht1.cs" />
     <Compile Include="Opdracht10.cs" />
     <Compile Include="Opdracht11.cs" />

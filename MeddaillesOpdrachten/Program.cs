@@ -28,10 +28,12 @@ namespace MeddaillesOpdrachten
 
             KlasOpdrachtFuncties taskExtra1 = new KlasOpdrachtFuncties();
             KlasOpdrachtArraysAndLists taskExtra2 = new KlasOpdrachtArraysAndLists();
+            NotesAndStuff notes = new NotesAndStuff();
 
-            //taskExtra2.Start();
 
-            task3.Start();
+            //notes.Start();
+
+            task5.Start();
 
         }
     }

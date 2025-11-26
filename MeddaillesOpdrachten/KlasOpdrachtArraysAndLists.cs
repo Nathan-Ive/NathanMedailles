@@ -33,6 +33,8 @@ namespace MeddaillesOpdracht2
             theTruth.Add(false);
             theTruth.Add(false);
 
+            theWords.Contains("february");
+
 
             Console.WriteLine(theWords[1]);
             Console.WriteLine(theNumbers[1]);
