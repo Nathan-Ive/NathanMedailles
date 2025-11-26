@@ -55,7 +55,7 @@ namespace MeddaillesOpdrachten
 
 
 
-            int theNumber = randomNumber.Next(1, _desiredMax);
+            int theNumber = randomNumber.Next(1, _desiredMax + 1);
 
 
             while (_userIsGuessing)
