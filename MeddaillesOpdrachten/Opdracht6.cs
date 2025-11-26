@@ -30,8 +30,18 @@ namespace MeddaillesOpdrachten
 
                 if (Int32.TryParse(_desiredMaxInput, out _desiredMax))
                 {
-                    _settingMaximum = false;
-                    _userIsGuessing = true;
+                    if (_desiredMax < 1)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please do not put in a number that is lower than 1. Thank you.");
+                    }
+                    else 
+                    {
+                        _settingMaximum = false;
+                        _userIsGuessing = true;
+                        Console.Clear();
+                    }
+
                 }
                 else 
                 {
@@ -95,15 +105,23 @@ namespace MeddaillesOpdrachten
                             Console.WriteLine("");
 
                         }
-                            
-                    } 
-                    else if (_userGuessNumber == theNumber) 
+
+                    }
+                    else if (_userGuessNumber == theNumber)
                     {
                         _guessAmount++;
                         Console.Clear();
                         Console.WriteLine("Congratulations, you got the right number! You're done guessing!");
                         Console.WriteLine("You got the number after " + _guessAmount + " guesses.");
                         _userIsGuessing = false;
+                    }
+                    
+                    
+                    if (_userGuessNumber > _desiredMax) 
+                    {
+                        _guessAmount--;
+                        Console.Clear();
+                        Console.WriteLine("This won't count as a guess, but please input a number that is lower than the one you set.");
                     }
 
 
