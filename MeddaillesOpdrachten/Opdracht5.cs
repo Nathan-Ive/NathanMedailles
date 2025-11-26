@@ -31,6 +31,7 @@ namespace MeddaillesOpdrachten
                 }
                 else 
                 {
+                    Console.Clear();
                     Console.WriteLine("Please try again, and input a number this time.");
                 }
 
