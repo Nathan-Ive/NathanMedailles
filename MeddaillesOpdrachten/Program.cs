@@ -33,7 +33,7 @@ namespace MeddaillesOpdrachten
 
             //notes.Start();
 
-            task6.Start();
+            task7.Start();
 
         }
     }

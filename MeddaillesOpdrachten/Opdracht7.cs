@@ -15,13 +15,7 @@ namespace MeddaillesOpdrachten
         private int _desiredRollAmount;
 
         private int _diceNumber;
-        private int _rolledOneCount;
-        private int _rolledTwoCount;
-        private int _rolledThreeCount;
-        private int _rolledFourCount;
-        private int _rolledFiveCount;
-        private int _rolledSixCount;
-
+        private float[] _rolledCount = new float[6];
 
         public void Start()
         {
@@ -56,35 +50,38 @@ namespace MeddaillesOpdrachten
                 switch (_diceNumber)
                 {
                     case 1:
-                        _rolledOneCount++;
+                        _rolledCount[0]++;
                         break;
                     case 2:
-                        _rolledTwoCount++;
+                        _rolledCount[1]++;
                         break;
                     case 3:
-                        _rolledThreeCount++;
+                        _rolledCount[2]++;
                         break;
                     case 4:
-                        _rolledFourCount++;
+                        _rolledCount[3]++;
                         break;
                     case 5:
-                        _rolledFiveCount++;
+                        _rolledCount[4]++;
                         break;
                     case 6:
-                        _rolledSixCount++;
+                        _rolledCount[5]++;
                         break;
                 }
-
-
             }
 
             Console.Clear();
-            Console.WriteLine("The dice landed on one " + _rolledOneCount + " times.");
-            Console.WriteLine("The dice landed on two " + _rolledTwoCount + " times.");
-            Console.WriteLine("The dice landed on three " + _rolledThreeCount + " times.");
-            Console.WriteLine("The dice landed on four " + _rolledFourCount + " times.");
-            Console.WriteLine("The dice landed on five " + _rolledFiveCount + " times.");
-            Console.WriteLine("The dice landed on six " + _rolledSixCount + " times.");
+            Console.WriteLine("After rolling the dice " + _desiredRollAmount + " times.");
+
+
+            for (int calculate = 0; calculate < _rolledCount.Length; calculate++)
+            {
+                float totalPercentage = (_rolledCount[calculate] / _desiredRollAmount) * 100;
+
+                Console.WriteLine("The dice landed on " + (calculate + 1) + " a total of " + totalPercentage + "% of the time.");
+            }
+
+
 
 
 
