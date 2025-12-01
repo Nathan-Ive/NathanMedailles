@@ -10,6 +10,10 @@ namespace MeddaillesOpdrachten
 {
     internal class Program
     {
+        private static string[] _studentFirstName = { "Nathan", "Totally"  };
+        private static string[] _studentLastName = { "Ivens", "Real" };
+        private static int[] _studentAge = { 22, -100 };
+
         static void Main(string[] args)
         {
 
@@ -34,6 +38,15 @@ namespace MeddaillesOpdrachten
             //notes.Start();
 
             task7.Start();
+
+
+            //Student student1 = new Student(_studentFirstName[0], _studentLastName[0] , _studentAge[0]);
+            //Student student2 = new Student(_studentFirstName[1], _studentLastName[1], _studentAge[1]);
+
+            //student1.namePrinter();
+            //student2.namePrinter();
+
+
 
         }
     }

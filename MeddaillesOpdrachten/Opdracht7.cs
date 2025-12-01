@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,9 +14,13 @@ namespace MeddaillesOpdrachten
 
         private string _rollAmountInput;
         private int _desiredRollAmount;
+        private int _mostRolledDice;
+
 
         private int _diceNumber;
         private float[] _rolledCount = new float[6];
+        private string[] _writtenCount = { "one", "two", "three", "four", "five", "six" };
+
 
         public void Start()
         {
@@ -78,12 +83,16 @@ namespace MeddaillesOpdrachten
             {
                 float totalPercentage = (_rolledCount[calculate] / _desiredRollAmount) * 100;
 
-                Console.WriteLine("The dice landed on " + (calculate + 1) + " a total of " + totalPercentage + "% of the time.");
+                Console.WriteLine("The dice landed on " + _writtenCount[calculate] + " " + System.Math.Round(totalPercentage,2) + "% of the time.");
             }
 
 
-
-
+            _mostRolledDice = _rolledCount.ToList().IndexOf(_rolledCount.Max());
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("The the dice landed on " + _writtenCount[_mostRolledDice] + " the most.");
+            Console.WriteLine("Landing a total of " + _rolledCount[_mostRolledDice] + " times.");
 
 
         }
