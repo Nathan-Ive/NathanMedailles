@@ -17,19 +17,19 @@ namespace MeddaillesOpdrachten
         static void Main(string[] args)
         {
 
-            Opdracht1 task1 = new Opdracht1(); //Turned In
-            Opdracht2 task2 = new Opdracht2(); //Incomplete
-            Opdracht3 task3 = new Opdracht3(); //Needs to be tested
-            Opdracht4 task4 = new Opdracht4(); //Needs to be tested
-            Opdracht5 task5 = new Opdracht5(); //Turned In
-            Opdracht6 task6 = new Opdracht6(); //Bugged
-            Opdracht7 task7 = new Opdracht7(); //Complete
-            Opdracht8 task8 = new Opdracht8();
-            Opdracht9 task9 = new Opdracht9();
+            Opdracht1 task1 = new Opdracht1(); ///Turned In
+            Opdracht2 task2 = new Opdracht2(); //Incomplete (Still needs a win condition for every route)
+            Opdracht3 task3 = new Opdracht3(); ///Complete (as far as I can tell)
+            Opdracht4 task4 = new Opdracht4(); //Incomplete (still needs leap year calculation, but normal years are complete)
+            Opdracht5 task5 = new Opdracht5(); ///Turned In
+            Opdracht6 task6 = new Opdracht6(); ///Complete
+            Opdracht7 task7 = new Opdracht7(); ///Complete
+            Opdracht8 task8 = new Opdracht8(); //Not started
+            Opdracht9 task9 = new Opdracht9(); //Not Started
             Opdracht10 task10 = new Opdracht10();
             Opdracht11 task11 = new Opdracht11();
 
-            task6.Start();
+            task4.Start();
 
 
             //KlasOpdrachtFuncties taskExtra1 = new KlasOpdrachtFuncties();
