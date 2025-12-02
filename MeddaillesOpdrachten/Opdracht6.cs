@@ -18,6 +18,7 @@ namespace MeddaillesOpdrachten
         private string _desiredMaxInput;
         private int _desiredMax;
         private int _guessAmount = 0;
+        private int _universalMinimum = 1;
 
         public void Start()
         {
@@ -30,7 +31,7 @@ namespace MeddaillesOpdrachten
 
                 if (Int32.TryParse(_desiredMaxInput, out _desiredMax))
                 {
-                    if (_desiredMax < 1)
+                    if (_desiredMax < _universalMinimum)
                     {
                         Console.Clear();
                         Console.WriteLine("Please do not put in a number that is lower than 1. Thank you.");
@@ -121,7 +122,14 @@ namespace MeddaillesOpdrachten
                     {
                         _guessAmount--;
                         Console.Clear();
-                        Console.WriteLine("This won't count as a guess, but please input a number that is lower than the one you set.");
+                        Console.WriteLine("This won't count as a guess, please input a number that is lower than the one you set.");
+                    }
+
+                    if (_userGuessNumber < _universalMinimum) 
+                    {
+                        _guessAmount--;
+                        Console.Clear();
+                        Console.WriteLine("This won't count as a guess, please input a number that is higher than or equal to 1.");
                     }
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MeddaillesOpdracht2
 {
-    internal class Student
+    internal class KlasOpdrachtStudent
     {
         //Make a student class
         //give them the following traits
@@ -23,7 +23,7 @@ namespace MeddaillesOpdracht2
         private string _studentLastName;
 
 
-        public Student(string name, string lastName, int age) 
+        public KlasOpdrachtStudent(string name, string lastName, int age) 
         {
             _studentAge = age;
             _studentFirstName = name;

@@ -19,7 +19,15 @@ namespace MeddaillesOpdrachten
 
         private int _diceNumber;
         private float[] _rolledCount = new float[6];
-        private string[] _writtenCount = { "one", "two", "three", "four", "five", "six" };
+        private string[] _writtenCount =
+        {
+            "one",
+            "two",
+            "three",
+            "four",
+            "five",
+            "six"
+        };
 
 
         public void Start()
