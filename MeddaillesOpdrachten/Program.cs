@@ -55,7 +55,7 @@ namespace MeddaillesOpdrachten
             
             Opdracht11 task11 = new Opdracht11();   //Not Started
 
-            task4.Start();
+            task7.Start();
 
 
             //KlasOpdrachtFuncties taskExtra1 = new KlasOpdrachtFuncties();

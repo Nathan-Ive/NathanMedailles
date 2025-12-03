@@ -10,21 +10,7 @@ namespace MeddaillesOpdrachten
     {
 
 
-        private List<string> _monthList = new List<string>() 
-        {
-            "january", 
-            "february", 
-            "march", 
-            "april", 
-            "may", 
-            "june", 
-            "july", 
-            "august", 
-            "september", 
-            "october", 
-            "november", 
-            "december" 
-        };
+
         
         private List<string> _monthListCap = new List<string>()
         { 
