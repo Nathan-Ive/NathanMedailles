@@ -59,6 +59,7 @@
     <Compile Include="Opdracht8.cs" />
     <Compile Include="Opdracht9.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProgramLeftovers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="KlasOpdrachtStudent.cs" />
     <Compile Include="User.cs" />
