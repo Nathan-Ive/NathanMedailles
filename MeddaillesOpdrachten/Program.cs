@@ -11,11 +11,18 @@ namespace MeddaillesOpdrachten
 {
     internal class Program
     {
+        //General Variables
+        //-----------------------------------------------------------//
+        static string playerTextInput;
+        static string field = "Input Field: "; //To be used in Console.Write to show when the user needs to input something.
 
+        //-----------------------------------------------------------//
+
+        //Task 8 Variables
+        //-----------------------------------------------------------//
         static bool programStart = true;
         static string startingInput;
         static List<string> characterNames = new List<string>();
-        static string playerTextInput;
         static int inputLevel;
         static List<int> characterLevels = new List<int>();
         static List<int> characterIDList = new List<int>();
@@ -23,8 +30,48 @@ namespace MeddaillesOpdrachten
         static int leftoverCharacters = 3;
         static List<int> characterLives = new List<int>();
         static List<string> characterDifficulty = new List<string>();
+        //-----------------------------------------------------------//
 
 
+
+        //Task 9 Variables
+        //-----------------------------------------------------------//
+        static List<int> itemIDList = new List<int>
+        {
+            0,
+            1,
+            2,
+            3,
+            4,
+        };
+        static List<string> itemNames = new List<string>
+        {
+            "Golden Stinger",
+            "Silver Slasher",
+            "Bronze Smasher",
+            "Mercury Blaster",
+            "Aluminum Dusters"
+        };
+        static List<string> itemTypes = new List<string>
+        {
+            "Spear",
+            "Sword",
+            "Hammer",
+            "Gun",
+            "Fists"
+        };
+        static List<int> itemLevels = new List<int> 
+        {
+            20,
+            15,
+            10,
+            50,
+            5
+        };
+        static bool checkingWeapons = true;
+        static bool upgradingWeapons = false;
+        static int upgradeAmount;
+        //-----------------------------------------------------------//
 
 
 
@@ -45,7 +92,7 @@ namespace MeddaillesOpdrachten
                     case "opdracht1":
                     case "opdracht 1":
                     case "1":
-                Opdracht1 task1 = new Opdracht1();      ///Turned In 3/3 
+                        Opdracht1 task1 = new Opdracht1();      ///Turned In 3/3 
 
 
                         task1.Start();
@@ -107,9 +154,6 @@ namespace MeddaillesOpdrachten
                         task6.Start();
                         programStart = false;
                         break;
-
-
-
                     case "task7":
                     case "task 7":
                     case "opdracht7":
@@ -140,14 +184,14 @@ namespace MeddaillesOpdrachten
                             Console.WriteLine("");
                             Console.WriteLine("Please input the name of your character.");
                             Console.WriteLine("");
-                            Console.Write("Name input: ");
+                            Console.Write(field);
 
                             characterNames.Add(Console.ReadLine());
 
                             Console.Clear();
                             Console.WriteLine($"Now input your desired starting level for {characterNames[playerIDValue]}.");
                             Console.WriteLine();
-                            Console.Write("Level input: ");
+                            Console.Write(field);
                             playerTextInput = Console.ReadLine();
                             Console.Clear();
 
@@ -168,7 +212,7 @@ namespace MeddaillesOpdrachten
                             Console.Clear();
                             Console.WriteLine($"Next, input your desired difficulty: Easy, Normal, Hard");
                             Console.WriteLine();
-                            Console.Write("Difficulty input: ");
+                            Console.Write(field);
                             playerTextInput = Console.ReadLine();
 
 
@@ -213,15 +257,33 @@ namespace MeddaillesOpdrachten
 
                         Console.Clear();
 
-                        Opdracht8 character1 = new Opdracht8(characterNames[characterIDList[0]], characterLevels[characterIDList[0]], characterLives[characterIDList[0]]);
+                        Opdracht8 character1 = new Opdracht8
+                        (
+                            characterNames[characterIDList[0]], 
+                            characterLevels[characterIDList[0]], 
+                            characterLives[characterIDList[0]]
+                        );
                         character1.ShowStats();
-                        Opdracht8 character2 = new Opdracht8(characterNames[characterIDList[1]], characterLevels[characterIDList[1]], characterLives[characterIDList[1]]);
+
+                        Opdracht8 character2 = new Opdracht8
+                        (
+                            characterNames[characterIDList[1]], 
+                            characterLevels[characterIDList[1]], 
+                            characterLives[characterIDList[1]]
+                        );
                         character2.ShowStats();
-                        Opdracht8 character3 = new Opdracht8(characterNames[characterIDList[2]], characterLevels[characterIDList[2]], characterLives[characterIDList[2]]);
+
+                        Opdracht8 character3 = new Opdracht8
+                        (
+                            characterNames[characterIDList[2]], 
+                            characterLevels[characterIDList[2]], 
+                            characterLives[characterIDList[2]]
+                        );
                         character3.ShowStats();
 
+                        
                         Console.WriteLine("");
-                        Console.WriteLine("To see these stats printed in a for loop, press enter.");
+                        Console.WriteLine("To see these stats printed through a for loop, press enter.");
                         Console.ReadLine();
                         Console.Clear();
 
@@ -241,11 +303,124 @@ namespace MeddaillesOpdrachten
                     case "opdracht9":
                     case "opdracht 9":
                     case "9":
-                        Opdracht9 task9 = new Opdracht9();      //Not Started
+                        //Opdracht9 Start                       //Not Started
+                                                                //Unlike task 8, no input here.
+                                                                //Most games don't allow players to create weapons out of nothing.
                                                                 //(This task is similar to 8, but constructing weapons instead of characters.)
                                                                 //(The goals are similar, they just require different stats.)
                                                                 //(The main idea is that the weapon has an upgrade level.)
+                        while (checkingWeapons) 
+                        {
+                            Opdracht9 weapon1 = new Opdracht9
+                            (
+                                itemNames[itemIDList[0]],
+                                5,
+                                itemTypes[itemIDList[0]],
+                                itemLevels[itemIDList[0]]
+                            );
+                            Opdracht9 weapon2 = new Opdracht9
+                            (
+                                itemNames[itemIDList[1]],
+                                5,
+                                itemTypes[itemIDList[1]],
+                                itemLevels[itemIDList[1]]
+                            );
+                            Opdracht9 weapon3 = new Opdracht9
+                            (
+                                itemNames[itemIDList[2]],
+                                5,
+                                itemTypes[itemIDList[2]],
+                                itemLevels[itemIDList[2]]
+                            );
+                            Opdracht9 weapon4 = new Opdracht9
+                            (
+                                itemNames[itemIDList[3]],
+                                5,
+                                itemTypes[itemIDList[3]],
+                                itemLevels[itemIDList[3]]
+                            );
 
+                            Opdracht9 weapon5 = new Opdracht9
+                            (
+                                itemNames[itemIDList[4]],
+                                5,
+                                itemTypes[itemIDList[4]],
+                                itemLevels[itemIDList[4]]
+                            );
+
+                            Console.WriteLine("Do you want to inspect a weapon or upgrade it?");
+                            Console.WriteLine();
+                            Console.WriteLine("Do you want to upgrade it?");
+                            Console.Write(field);
+                            playerTextInput = Console.ReadLine();
+                            if (playerTextInput.ToLower() == "upgrade")
+                            {
+                                upgradingWeapons = true;
+                                while (upgradingWeapons)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("By how much do you want to upgrade the weapon's level?");
+                                    Console.WriteLine("One level adds 5 damage.");
+                                    Console.WriteLine();
+                                    Console.Write(field);
+                                    if (Int32.TryParse(playerTextInput, out upgradeAmount))
+                                    {
+                                        weapon1.WeaponUpgrade(upgradeAmount);
+                                        upgradingWeapons = false;
+                                    }
+                                    else
+                                    {
+                                        Console.Clear();
+                                        Console.WriteLine("Try again, this time inputting a number.");
+                                        Console.WriteLine();
+
+                                    }
+
+                                }
+                            }
+                            Console.WriteLine("Which weapon do you want to see the stats for?");
+                            Console.WriteLine();
+                            Console.Write(field);
+                            playerTextInput = Console.ReadLine();
+
+                            switch (playerTextInput.ToLower())
+                            {
+                                case "1":
+                                case "weapon 1":
+                                case "golden stinger":
+                                    weapon1.ShowStats();
+                                        break;
+                                case "2":
+                                case "weapon 2":
+                                case "silver slasher":
+                                    weapon2.ShowStats();
+                                    break;
+                                case "3":
+                                case "weapon 3":
+                                case "bronze smasher":
+                                    weapon3.ShowStats();
+                                    break;
+                                case "4":
+                                case "weapon 4":
+                                case "mercury blaster":
+                                    weapon4.ShowStats();
+                                    break;
+                                case "5":
+                                case "weapon 5":
+                                case "aluminum dusters":
+                                    weapon5.ShowStats();
+                                    break;
+                                case "exit":
+                                case "stop":
+                                case "leave":
+                                case "none":
+                                    checkingWeapons = false;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        //Opdracht 9 End
                         programStart = false;
                         break;
                     case "task10":
@@ -268,8 +443,6 @@ namespace MeddaillesOpdrachten
 
                         programStart = false;
                         break;
-
-
                     case "exit":
                     case "quit":
                     case "end":
@@ -279,14 +452,8 @@ namespace MeddaillesOpdrachten
                         Console.Clear();
                         Console.WriteLine("Invalid input, try either inputting 'task [number]' or typing an exit command.");
                         break;
-                }
-
-                
+                }   
             }
-            
-
-            
-
         }
     }
 }

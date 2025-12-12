@@ -139,8 +139,6 @@ namespace MeddaillesOpdrachten
                     Console.Clear();
                     Console.WriteLine("Please input a number.");
                 }
-
-
             }
         }
     }

@@ -24,7 +24,7 @@ namespace MeddaillesOpdrachten
 
         public void ShowStats()
         {
-            Console.WriteLine("");
+            Console.WriteLine();
             Console.WriteLine($"These are the stats for the character {_characterName}");
             Console.WriteLine();
             Console.WriteLine($"Level: {_characterLevel}");
