@@ -26,8 +26,8 @@ namespace MeddaillesOpdrachten
         static List<string> characterNames = new List<string>();
         static int inputLevel;
         static List<int> characterLevels = new List<int>();
-        static int playerIDValue = 0;
-        static int leftoverCharacters = 3;
+        static int playerIDValue = 0; //represents the amount of characters that have been made.
+        static int leftoverCharacters = 3; //represents the initial limit of creatable characters.
         static List<int> characterLives = new List<int>();
         static List<string> characterDifficulty = new List<string>();
         //-----------------------------------------------------------//
