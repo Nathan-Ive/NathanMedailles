@@ -256,27 +256,11 @@ namespace MeddaillesOpdrachten
 
                         Console.Clear();
 
-                        Character character1 = new Character
-                        (
-                            characterNames[0], 
-                            characterLevels[0], 
-                            characterLives[0]
-                        );
-                        Character character2 = new Character
-                        (
-                            characterNames[1], 
-                            characterLevels[1], 
-                            characterLives[1]
-                        );
-                        Character character3 = new Character
-                        (
-                            characterNames[2], 
-                            characterLevels[2], 
-                            characterLives[2]
-                        );
-                        characters.Add(character1);
-                        characters.Add(character2);
-                        characters.Add(character3);
+                        for(int i = 0; i < playerIDValue; i++)
+                        {
+                            Character character = new Character(characterNames[i], characterLevels[i], characterLives[i], characterDifficulty[i]);
+                            characters.Add(character);
+                        }
 
                         foreach (Character player in characters)
                         {
