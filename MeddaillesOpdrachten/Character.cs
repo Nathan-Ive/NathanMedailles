@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace MeddaillesOpdrachten
 {
-    internal class Opdracht8
+    internal class Character
     {
         private string _characterName;
         private int _characterLevel;
         private int _characterLives; // 3 lives = hard | 5 lives = normal | 10 lives = easy
 
-        public Opdracht8(string name, int level, int lives)
+        public Character(string name, int level, int lives)
         {
             _characterName = name;
             _characterLevel = level;

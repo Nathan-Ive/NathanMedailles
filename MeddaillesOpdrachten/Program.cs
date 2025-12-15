@@ -15,17 +15,17 @@ namespace MeddaillesOpdrachten
         //-----------------------------------------------------------//
         static string playerTextInput;
         static string field = "Input Field: "; //To be used in Console.Write to show when the user needs to input something.
+        static bool programStart = true;
 
         //-----------------------------------------------------------//
 
         //Task 8 Variables
         //-----------------------------------------------------------//
-        static bool programStart = true;
         static string startingInput;
+        static List<Character> characters = new List<Character>(); //A List that contains each instance of the character object class
         static List<string> characterNames = new List<string>();
         static int inputLevel;
         static List<int> characterLevels = new List<int>();
-        static List<int> characterIDList = new List<int>();
         static int playerIDValue = 0;
         static int leftoverCharacters = 3;
         static List<int> characterLives = new List<int>();
@@ -250,54 +250,43 @@ namespace MeddaillesOpdrachten
                             Console.ReadLine();
                             Console.Clear();
 
-                            characterIDList.Add(playerIDValue);
                             leftoverCharacters--;
                             playerIDValue++;
                         }
 
                         Console.Clear();
 
-                        Opdracht8 character1 = new Opdracht8
+                        Character character1 = new Character
                         (
-                            characterNames[characterIDList[0]], 
-                            characterLevels[characterIDList[0]], 
-                            characterLives[characterIDList[0]]
+                            characterNames[0], 
+                            characterLevels[0], 
+                            characterLives[0]
                         );
-                        character1.ShowStats();
-
-                        Opdracht8 character2 = new Opdracht8
+                        Character character2 = new Character
                         (
-                            characterNames[characterIDList[1]], 
-                            characterLevels[characterIDList[1]], 
-                            characterLives[characterIDList[1]]
+                            characterNames[1], 
+                            characterLevels[1], 
+                            characterLives[1]
                         );
-                        character2.ShowStats();
-
-                        Opdracht8 character3 = new Opdracht8
+                        Character character3 = new Character
                         (
-                            characterNames[characterIDList[2]], 
-                            characterLevels[characterIDList[2]], 
-                            characterLives[characterIDList[2]]
+                            characterNames[2], 
+                            characterLevels[2], 
+                            characterLives[2]
                         );
-                        character3.ShowStats();
+                        characters.Add(character1);
+                        characters.Add(character2);
+                        characters.Add(character3);
 
-                        
-                        Console.WriteLine("");
-                        Console.WriteLine("To see these stats printed through a for loop, press enter.");
-                        Console.ReadLine();
-                        Console.Clear();
-
-                        foreach (int id in characterIDList)
+                        foreach (Character player in characters)
                         {
-                            Console.WriteLine($"{characterNames[id]} is level {characterLevels[id]}.");
-                            Console.WriteLine($"{characterNames[id]}, having chosen {characterDifficulty[id]} difficulty has {characterLives[id]} initial lives");
-                            Console.WriteLine("");
-
+                            player.ShowStats();
                         }
 
                         //Opdracht 8 End
                         programStart = false;
                         break;
+
                     case "task9":
                     case "task 9":
                     case "opdracht9":
@@ -350,7 +339,6 @@ namespace MeddaillesOpdrachten
 
                             Console.WriteLine("Do you want to inspect a weapon or upgrade it?");
                             Console.WriteLine();
-                            Console.WriteLine("Do you want to upgrade it?");
                             Console.Write(field);
                             playerTextInput = Console.ReadLine();
                             if (playerTextInput.ToLower() == "upgrade")
@@ -358,22 +346,115 @@ namespace MeddaillesOpdrachten
                                 upgradingWeapons = true;
                                 while (upgradingWeapons)
                                 {
-                                    Console.Clear();
-                                    Console.WriteLine("By how much do you want to upgrade the weapon's level?");
-                                    Console.WriteLine("One level adds 5 damage.");
+                                    Console.WriteLine("Which weapon do you want to upgrade?");
                                     Console.WriteLine();
                                     Console.Write(field);
-                                    if (Int32.TryParse(playerTextInput, out upgradeAmount))
+                                    switch (playerTextInput.ToLower()) 
                                     {
-                                        weapon1.WeaponUpgrade(upgradeAmount);
-                                        upgradingWeapons = false;
-                                    }
-                                    else
-                                    {
-                                        Console.Clear();
-                                        Console.WriteLine("Try again, this time inputting a number.");
-                                        Console.WriteLine();
+                                        case "1":
+                                        case "weapon 1":
+                                            Console.Clear();
+                                            Console.WriteLine($"You have selected {itemNames[itemIDList[0]]}");
+                                            Console.WriteLine("By how much do you want to upgrade the weapon's level?");
+                                            Console.WriteLine("One level adds 1 damage.");
+                                            Console.WriteLine();
+                                            Console.Write(field);
+                                            if (Int32.TryParse(playerTextInput, out upgradeAmount))
+                                            {
+                                                weapon1.WeaponUpgrade(upgradeAmount);
+                                                upgradingWeapons = false;
+                                            }
+                                            else
+                                            {
+                                                Console.Clear();
+                                                Console.WriteLine("Try again, this time inputting a number.");
+                                                Console.WriteLine();
+                                            }
+                                            break;
+                                        case "2":
+                                        case "weapon 2":
+                                            Console.Clear();
+                                            Console.WriteLine($"You have selected {itemNames[itemIDList[1]]}");
+                                            Console.WriteLine("By how much do you want to upgrade the weapon's level?");
+                                            Console.WriteLine("One level adds 1 damage.");
+                                            Console.WriteLine();
+                                            Console.Write(field);
+                                            if (Int32.TryParse(playerTextInput, out upgradeAmount))
+                                            {
+                                                weapon2.WeaponUpgrade(upgradeAmount);
+                                                upgradingWeapons = false;
+                                            }
+                                            else
+                                            {
+                                                Console.Clear();
+                                                Console.WriteLine("Try again, this time inputting a number.");
+                                                Console.WriteLine();
+                                            }
 
+                                            break;
+                                        case "3":
+                                        case "weapon 3":
+                                            Console.Clear();
+                                            Console.WriteLine($"You have selected {itemNames[itemIDList[2]]}");
+                                            Console.WriteLine("By how much do you want to upgrade the weapon's level?");
+                                            Console.WriteLine("One level adds 1 damage.");
+                                            Console.WriteLine();
+                                            Console.Write(field);
+                                            if (Int32.TryParse(playerTextInput, out upgradeAmount))
+                                            {
+                                                weapon3.WeaponUpgrade(upgradeAmount);
+                                                upgradingWeapons = false;
+                                            }
+                                            else
+                                            {
+                                                Console.Clear();
+                                                Console.WriteLine("Try again, this time inputting a number.");
+                                                Console.WriteLine();
+                                            }
+
+                                            break;
+                                        case "4":
+                                        case "weapon 4":
+                                            Console.Clear();
+                                            Console.WriteLine($"You have selected {itemNames[itemIDList[3]]}");
+                                            Console.WriteLine("By how much do you want to upgrade the weapon's level?");
+                                            Console.WriteLine("One level adds 1 damage.");
+                                            Console.WriteLine();
+                                            Console.Write(field);
+                                            if (Int32.TryParse(playerTextInput, out upgradeAmount))
+                                            {
+                                                weapon4.WeaponUpgrade(upgradeAmount);
+                                                upgradingWeapons = false;
+                                            }
+                                            else
+                                            {
+                                                Console.Clear();
+                                                Console.WriteLine("Try again, this time inputting a number.");
+                                                Console.WriteLine();
+                                            }
+
+                                            break;
+                                        case "5":
+                                        case "weapon 5":
+                                            Console.Clear();
+                                            Console.WriteLine($"You have selected {itemNames[itemIDList[4]]}");
+                                            Console.WriteLine("By how much do you want to upgrade the weapon's level?");
+                                            Console.WriteLine("One level adds 1 damage.");
+                                            Console.WriteLine();
+                                            Console.Write(field);
+                                            if (Int32.TryParse(playerTextInput, out upgradeAmount))
+                                            {
+                                                weapon5.WeaponUpgrade(upgradeAmount);
+                                                upgradingWeapons = false;
+                                            }
+                                            else
+                                            {
+                                                Console.Clear();
+                                                Console.WriteLine("Try again, this time inputting a number.");
+                                                Console.WriteLine();
+                                            }
+
+                                            break;
                                     }
 
                                 }

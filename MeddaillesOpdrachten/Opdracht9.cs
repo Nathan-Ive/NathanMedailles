@@ -39,7 +39,7 @@ namespace MeddaillesOpdrachten
 
         public int WeaponUpgrade(int damageToAdd) 
         {
-            int levelIncrease = 1;
+            int levelIncrease = damageToAdd;
 
 
 
