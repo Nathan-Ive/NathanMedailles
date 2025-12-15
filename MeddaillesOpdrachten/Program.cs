@@ -36,6 +36,7 @@ namespace MeddaillesOpdrachten
 
         //Task 9 Variables
         //-----------------------------------------------------------//
+        static List<Weapons> weapons = new List<Weapons>();
         static List<int> itemIDList = new List<int>
         {
             0,
@@ -67,6 +68,14 @@ namespace MeddaillesOpdrachten
             10,
             50,
             5
+        };
+        static List<int> itemBaseDamage = new List<int>
+        {
+            5,
+            6,
+            2,
+            15,
+            1
         };
         static bool checkingWeapons = true;
         static bool upgradingWeapons = false;
@@ -282,45 +291,20 @@ namespace MeddaillesOpdrachten
                                                                 //(This task is similar to 8, but constructing weapons instead of characters.)
                                                                 //(The goals are similar, they just require different stats.)
                                                                 //(The main idea is that the weapon has an upgrade level.)
+
+                        foreach (int item in itemIDList) 
+                        {
+                            Weapons weapon = new Weapons
+                            (
+                                itemNames[item],
+                                itemBaseDamage[item],
+                                itemTypes[item],
+                                itemLevels[item]
+                            );
+
+                        }
                         while (checkingWeapons) 
                         {
-                            Opdracht9 weapon1 = new Opdracht9
-                            (
-                                itemNames[itemIDList[0]],
-                                5,
-                                itemTypes[itemIDList[0]],
-                                itemLevels[itemIDList[0]]
-                            );
-                            Opdracht9 weapon2 = new Opdracht9
-                            (
-                                itemNames[itemIDList[1]],
-                                5,
-                                itemTypes[itemIDList[1]],
-                                itemLevels[itemIDList[1]]
-                            );
-                            Opdracht9 weapon3 = new Opdracht9
-                            (
-                                itemNames[itemIDList[2]],
-                                5,
-                                itemTypes[itemIDList[2]],
-                                itemLevels[itemIDList[2]]
-                            );
-                            Opdracht9 weapon4 = new Opdracht9
-                            (
-                                itemNames[itemIDList[3]],
-                                5,
-                                itemTypes[itemIDList[3]],
-                                itemLevels[itemIDList[3]]
-                            );
-
-                            Opdracht9 weapon5 = new Opdracht9
-                            (
-                                itemNames[itemIDList[4]],
-                                5,
-                                itemTypes[itemIDList[4]],
-                                itemLevels[itemIDList[4]]
-                            );
-
                             Console.WriteLine("Do you want to inspect a weapon or upgrade it?");
                             Console.WriteLine();
                             Console.Write(field);

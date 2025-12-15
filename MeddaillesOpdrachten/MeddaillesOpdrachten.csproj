@@ -57,7 +57,7 @@
     <Compile Include="Opdracht6.cs" />
     <Compile Include="Opdracht7.cs" />
     <Compile Include="Character.cs" />
-    <Compile Include="Opdracht9.cs" />
+    <Compile Include="Weapons.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgramLeftovers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

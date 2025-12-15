@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 namespace MeddaillesOpdrachten
 {
-    internal class Opdracht9
+    internal class Weapons
     {
         private string _weaponName;
-        private int _weaponDamage; //Should be increaseable through a "WeaponUpgrade" function.
+        private int _weaponDamageTotal; //The combined damage total by adding base damage and level together in a simple equation, 
+                                        //should be increasable through a "WeaponUpgrade" function.
         private string _weaponType;
         private int _weaponUpgradeLevel;
 
-        public Opdracht9(string name, int damage, string type, int level)
+        public Weapons(string name, int damage, string type, int level)
         {
             _weaponName = name;
-            _weaponDamage = damage;
+            _weaponDamageTotal = damage * level;
             _weaponType = type;
             _weaponUpgradeLevel = level;
 
@@ -29,7 +30,7 @@ namespace MeddaillesOpdrachten
             Console.WriteLine();
             Console.WriteLine($"These are the stats for the weapon: {_weaponName}");
             Console.WriteLine();
-            Console.WriteLine($"Damage: {_weaponDamage}");
+            Console.WriteLine($"Damage: {_weaponDamageTotal}");
             Console.WriteLine($"Type: {_weaponType}");
             Console.WriteLine($"Upgrades: {_weaponUpgradeLevel}");
             Console.WriteLine();
@@ -40,7 +41,6 @@ namespace MeddaillesOpdrachten
         public int WeaponUpgrade(int damageToAdd) 
         {
             int levelIncrease = damageToAdd;
-
 
 
             return levelIncrease;
