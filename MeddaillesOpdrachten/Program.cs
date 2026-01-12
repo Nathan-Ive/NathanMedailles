@@ -301,8 +301,15 @@ namespace MeddaillesOpdrachten
                                 itemTypes[item],
                                 itemLevels[item]
                             );
+                            weapons.Add(weapon);
+                        }
+
+                        foreach (Weapons weapon in weapons) 
+                        {
+
 
                         }
+
                         while (checkingWeapons) 
                         {
                             Console.WriteLine("Do you want to inspect a weapon or upgrade it?");
@@ -329,7 +336,7 @@ namespace MeddaillesOpdrachten
                                             Console.Write(field);
                                             if (Int32.TryParse(playerTextInput, out upgradeAmount))
                                             {
-                                                weapon1.WeaponUpgrade(upgradeAmount);
+                                                //weapon.WeaponUpgrade(upgradeAmount);
                                                 upgradingWeapons = false;
                                             }
                                             else
@@ -349,7 +356,7 @@ namespace MeddaillesOpdrachten
                                             Console.Write(field);
                                             if (Int32.TryParse(playerTextInput, out upgradeAmount))
                                             {
-                                                weapon2.WeaponUpgrade(upgradeAmount);
+                                                //weapon2.WeaponUpgrade(upgradeAmount);
                                                 upgradingWeapons = false;
                                             }
                                             else
@@ -370,7 +377,7 @@ namespace MeddaillesOpdrachten
                                             Console.Write(field);
                                             if (Int32.TryParse(playerTextInput, out upgradeAmount))
                                             {
-                                                weapon3.WeaponUpgrade(upgradeAmount);
+                                                //weapon3.WeaponUpgrade(upgradeAmount);
                                                 upgradingWeapons = false;
                                             }
                                             else
@@ -391,7 +398,7 @@ namespace MeddaillesOpdrachten
                                             Console.Write(field);
                                             if (Int32.TryParse(playerTextInput, out upgradeAmount))
                                             {
-                                                weapon4.WeaponUpgrade(upgradeAmount);
+                                                //weapon4.WeaponUpgrade(upgradeAmount);
                                                 upgradingWeapons = false;
                                             }
                                             else
@@ -412,7 +419,7 @@ namespace MeddaillesOpdrachten
                                             Console.Write(field);
                                             if (Int32.TryParse(playerTextInput, out upgradeAmount))
                                             {
-                                                weapon5.WeaponUpgrade(upgradeAmount);
+                                                //weapon5.WeaponUpgrade(upgradeAmount);
                                                 upgradingWeapons = false;
                                             }
                                             else
@@ -437,27 +444,27 @@ namespace MeddaillesOpdrachten
                                 case "1":
                                 case "weapon 1":
                                 case "golden stinger":
-                                    weapon1.ShowStats();
+                                    //weapon1.ShowStats();
                                         break;
                                 case "2":
                                 case "weapon 2":
                                 case "silver slasher":
-                                    weapon2.ShowStats();
+                                    //weapon2.ShowStats();
                                     break;
                                 case "3":
                                 case "weapon 3":
                                 case "bronze smasher":
-                                    weapon3.ShowStats();
+                                    //weapon3.ShowStats();
                                     break;
                                 case "4":
                                 case "weapon 4":
                                 case "mercury blaster":
-                                    weapon4.ShowStats();
+                                    //weapon4.ShowStats();
                                     break;
                                 case "5":
                                 case "weapon 5":
                                 case "aluminum dusters":
-                                    weapon5.ShowStats();
+                                    //weapon5.ShowStats();
                                     break;
                                 case "exit":
                                 case "stop":
