@@ -32,18 +32,25 @@ namespace MeddaillesOpdrachten
             Console.WriteLine();
             Console.WriteLine($"Damage: {_weaponDamageTotal}");
             Console.WriteLine($"Type: {_weaponType}");
-            Console.WriteLine($"Upgrades: {_weaponUpgradeLevel}");
+            Console.WriteLine($"Level: {_weaponUpgradeLevel}");
             Console.WriteLine();
             Console.WriteLine("____________________________________________________________");
         }
 
 
-        public int WeaponUpgrade(int damageToAdd) 
+        public int WeaponUpgrade(int weaponLevelIncrease) 
         {
-            int levelIncrease = damageToAdd;
+            int newWeaponLevel = _weaponUpgradeLevel + weaponLevelIncrease;
+
+            Console.WriteLine($"Your weapon has successfully been upgraded by {weaponLevelIncrease} Levels!");
+            Console.WriteLine($"It is now level {newWeaponLevel}");
+            Console.ReadLine();
+
+            _weaponUpgradeLevel = newWeaponLevel;
+            _weaponDamageTotal = _weaponDamageTotal + weaponLevelIncrease;
 
 
-            return levelIncrease;
+            return newWeaponLevel;
         }
     }
 }

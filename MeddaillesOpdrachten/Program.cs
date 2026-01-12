@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -79,6 +80,7 @@ namespace MeddaillesOpdrachten
         };
         static bool checkingWeapons = true;
         static bool upgradingWeapons = false;
+        static bool inspectingWeapons = false;
         static int upgradeAmount;
         //-----------------------------------------------------------//
 
@@ -94,7 +96,7 @@ namespace MeddaillesOpdrachten
                 startingInput = Console.ReadLine();
                 Console.Clear();
 
-                switch (startingInput.ToLower()) 
+                switch (startingInput.ToLower())
                 {
                     case "task1":
                     case "task 1":
@@ -180,9 +182,9 @@ namespace MeddaillesOpdrachten
                     case "opdracht 8":
                     case "8":
                         //Opdracht8 Start                       //Complete [I made it friendly for user input. You can choose a name, level, and the amount of lives you want through a set difficulty value.]
-                                                                //It prints everything at the end, showing name, level and lives.
-                                                                //I have also added an extra part where it prints everything in a for loop.
-                                                                //This shows that I can pull both the values from the Class/Constructor as well as from the variables in the List above.
+                        //                                      //It prints everything at the end, showing name, level and lives.
+                        //                                      //I have also added an extra part where it prints everything in a for loop.
+                        //                                      //This shows that I can pull both the values from the Class/Constructor as well as from the variables in the List above.
 
                         while (playerIDValue <= 2)
                         {
@@ -265,7 +267,7 @@ namespace MeddaillesOpdrachten
 
                         Console.Clear();
 
-                        for(int i = 0; i < playerIDValue; i++)
+                        for (int i = 0; i < playerIDValue; i++)
                         {
                             Character character = new Character(characterNames[i], characterLevels[i], characterLives[i], characterDifficulty[i]);
                             characters.Add(character);
@@ -286,16 +288,16 @@ namespace MeddaillesOpdrachten
                     case "opdracht 9":
                     case "9":
                         //Opdracht9 Start                       //Not Started
-                                                                //Unlike task 8, no input here.
-                                                                //Most games don't allow players to create weapons out of nothing.
-                                                                //(This task is similar to 8, but constructing weapons instead of characters.)
-                                                                //(The goals are similar, they just require different stats.)
-                                                                //(The main idea is that the weapon has an upgrade level.)
+                        //                                      //Unlike task 8, no input here.
+                        //                                      //Most games don't allow players to create weapons out of nothing.
+                        //                                      //(This task is similar to 8, but constructing weapons instead of characters.)
+                        //                                      //(The goals are similar, they just require different stats.)
+                        //                                      //(The main idea is that the weapon has an upgrade level.)
+                        //
+                        //                                      //I have run into a wall where I cannot pull the variables from my objects in the "Weapons" class.
+                        //                                      //I'm currently reading up on that, until then I'll focus on fixing task 2 and task 4 to turn them in.
 
-                                                                //I have run into a wall where I cannot pull the variables from my objects in the "Weapons" class.
-                                                                //I'm currently reading up on that, until then I'll focus on fixing task 2 and task 4 to turn them in.
-
-                        foreach (int item in itemIDList) 
+                        foreach (int item in itemIDList)
                         {
                             Weapons weapon = new Weapons
                             (
@@ -307,18 +309,17 @@ namespace MeddaillesOpdrachten
                             weapons.Add(weapon);
                         }
 
-                        foreach (Weapons weapon in weapons) 
+
+                        Console.ReadLine();
+
+                        while (checkingWeapons)
                         {
-
-
-                        }
-
-                        while (checkingWeapons) 
-                        {
+                            Console.Clear();
                             Console.WriteLine("Do you want to inspect a weapon or upgrade it?");
                             Console.WriteLine();
                             Console.Write(field);
                             playerTextInput = Console.ReadLine();
+                            Console.Clear();
                             if (playerTextInput.ToLower() == "upgrade")
                             {
                                 upgradingWeapons = true;
@@ -327,44 +328,44 @@ namespace MeddaillesOpdrachten
                                     Console.WriteLine("Which weapon do you want to upgrade?");
                                     Console.WriteLine();
                                     Console.Write(field);
-                                    switch (playerTextInput.ToLower()) 
+                                    playerTextInput = Console.ReadLine();
+                                    Console.Clear();
+                                    switch (playerTextInput.ToLower())
                                     {
                                         case "1":
                                         case "weapon 1":
-                                            Console.Clear();
+                                        case "golden stinger":
                                             Console.WriteLine($"You have selected {itemNames[itemIDList[0]]}");
                                             Console.WriteLine("By how much do you want to upgrade the weapon's level?");
                                             Console.WriteLine("One level adds 1 damage.");
                                             Console.WriteLine();
                                             Console.Write(field);
+                                            playerTextInput = Console.ReadLine();
                                             if (Int32.TryParse(playerTextInput, out upgradeAmount))
                                             {
-                                                //weapon.WeaponUpgrade(upgradeAmount);
-                                                upgradingWeapons = false;
+                                                weapons[itemIDList[0]].WeaponUpgrade(upgradeAmount);
                                             }
                                             else
                                             {
-                                                Console.Clear();
                                                 Console.WriteLine("Try again, this time inputting a number.");
                                                 Console.WriteLine();
                                             }
                                             break;
                                         case "2":
                                         case "weapon 2":
-                                            Console.Clear();
+                                        case "silver slasher":
                                             Console.WriteLine($"You have selected {itemNames[itemIDList[1]]}");
                                             Console.WriteLine("By how much do you want to upgrade the weapon's level?");
                                             Console.WriteLine("One level adds 1 damage.");
                                             Console.WriteLine();
                                             Console.Write(field);
+                                            playerTextInput = Console.ReadLine();
                                             if (Int32.TryParse(playerTextInput, out upgradeAmount))
                                             {
-                                                //weapon2.WeaponUpgrade(upgradeAmount);
-                                                upgradingWeapons = false;
+                                                weapons[itemIDList[1]].WeaponUpgrade(upgradeAmount);
                                             }
                                             else
                                             {
-                                                Console.Clear();
                                                 Console.WriteLine("Try again, this time inputting a number.");
                                                 Console.WriteLine();
                                             }
@@ -372,20 +373,19 @@ namespace MeddaillesOpdrachten
                                             break;
                                         case "3":
                                         case "weapon 3":
-                                            Console.Clear();
+                                        case "bronze smasher":
                                             Console.WriteLine($"You have selected {itemNames[itemIDList[2]]}");
                                             Console.WriteLine("By how much do you want to upgrade the weapon's level?");
                                             Console.WriteLine("One level adds 1 damage.");
                                             Console.WriteLine();
                                             Console.Write(field);
+                                            playerTextInput = Console.ReadLine();
                                             if (Int32.TryParse(playerTextInput, out upgradeAmount))
                                             {
-                                                //weapon3.WeaponUpgrade(upgradeAmount);
-                                                upgradingWeapons = false;
+                                                weapons[itemIDList[2]].WeaponUpgrade(upgradeAmount);
                                             }
                                             else
                                             {
-                                                Console.Clear();
                                                 Console.WriteLine("Try again, this time inputting a number.");
                                                 Console.WriteLine();
                                             }
@@ -393,20 +393,19 @@ namespace MeddaillesOpdrachten
                                             break;
                                         case "4":
                                         case "weapon 4":
-                                            Console.Clear();
+                                        case "mercury blaster":
                                             Console.WriteLine($"You have selected {itemNames[itemIDList[3]]}");
                                             Console.WriteLine("By how much do you want to upgrade the weapon's level?");
                                             Console.WriteLine("One level adds 1 damage.");
                                             Console.WriteLine();
                                             Console.Write(field);
+                                            playerTextInput = Console.ReadLine();
                                             if (Int32.TryParse(playerTextInput, out upgradeAmount))
                                             {
-                                                //weapon4.WeaponUpgrade(upgradeAmount);
-                                                upgradingWeapons = false;
+                                                weapons[itemIDList[3]].WeaponUpgrade(upgradeAmount);
                                             }
                                             else
                                             {
-                                                Console.Clear();
                                                 Console.WriteLine("Try again, this time inputting a number.");
                                                 Console.WriteLine();
                                             }
@@ -414,73 +413,107 @@ namespace MeddaillesOpdrachten
                                             break;
                                         case "5":
                                         case "weapon 5":
-                                            Console.Clear();
+                                        case "aluminum dusters":
                                             Console.WriteLine($"You have selected {itemNames[itemIDList[4]]}");
                                             Console.WriteLine("By how much do you want to upgrade the weapon's level?");
                                             Console.WriteLine("One level adds 1 damage.");
                                             Console.WriteLine();
                                             Console.Write(field);
+                                            playerTextInput = Console.ReadLine();
                                             if (Int32.TryParse(playerTextInput, out upgradeAmount))
                                             {
-                                                //weapon5.WeaponUpgrade(upgradeAmount);
-                                                upgradingWeapons = false;
+                                                weapons[itemIDList[4]].WeaponUpgrade(upgradeAmount);
                                             }
                                             else
                                             {
-                                                Console.Clear();
                                                 Console.WriteLine("Try again, this time inputting a number.");
                                                 Console.WriteLine();
                                             }
-
+                                            break;
+                                        case "exit":
+                                        case "stop":
+                                        case "leave":
+                                        case "none":
+                                            upgradingWeapons = false;
+                                            break;
+                                        default:
+                                            Console.WriteLine("Try again, this time inputting a weapon name or ID");
+                                            Console.WriteLine();
                                             break;
                                     }
-
+                                    Console.Clear();
                                 }
                             }
-                            Console.WriteLine("Which weapon do you want to see the stats for?");
-                            Console.WriteLine();
-                            Console.Write(field);
-                            playerTextInput = Console.ReadLine();
-
-                            switch (playerTextInput.ToLower())
+                            else if (playerTextInput.ToLower() == "inspect")
                             {
-                                case "1":
-                                case "weapon 1":
-                                case "golden stinger":
-                                    //weapon1.ShowStats();
-                                        break;
-                                case "2":
-                                case "weapon 2":
-                                case "silver slasher":
-                                    //weapon2.ShowStats();
-                                    break;
-                                case "3":
-                                case "weapon 3":
-                                case "bronze smasher":
-                                    //weapon3.ShowStats();
-                                    break;
-                                case "4":
-                                case "weapon 4":
-                                case "mercury blaster":
-                                    //weapon4.ShowStats();
-                                    break;
-                                case "5":
-                                case "weapon 5":
-                                case "aluminum dusters":
-                                    //weapon5.ShowStats();
-                                    break;
-                                case "exit":
-                                case "stop":
-                                case "leave":
-                                case "none":
-                                    checkingWeapons = false;
-                                    break;
-                                default:
-                                    break;
+                                inspectingWeapons = true;
+                                while (inspectingWeapons)
+                                {
+                                    Console.WriteLine("Which weapon do you want to see the stats for?");
+                                    Console.WriteLine();
+                                    Console.Write(field);
+                                    playerTextInput = Console.ReadLine();
+                                    Console.Clear();
+                                    switch (playerTextInput.ToLower())
+                                    {
+                                        case "1":
+                                        case "weapon 1":
+                                        case "golden stinger":
+                                            weapons[itemIDList[0]].ShowStats();
+                                            Console.ReadLine();
+                                            break;
+                                        case "2":
+                                        case "weapon 2":
+                                        case "silver slasher":
+                                            weapons[itemIDList[1]].ShowStats();
+                                            Console.ReadLine();
+                                            break;
+                                        case "3":
+                                        case "weapon 3":
+                                        case "bronze smasher":
+                                            weapons[itemIDList[2]].ShowStats();
+                                            Console.ReadLine();
+                                            break;
+                                        case "4":
+                                        case "weapon 4":
+                                        case "mercury blaster":
+                                            weapons[itemIDList[3]].ShowStats();
+                                            Console.ReadLine();
+                                            break;
+                                        case "5":
+                                        case "weapon 5":
+                                        case "aluminum dusters":
+                                            weapons[itemIDList[4]].ShowStats();
+                                            Console.ReadLine();
+                                            break;
+                                        case "exit":
+                                        case "stop":
+                                        case "leave":
+                                        case "none":
+                                            inspectingWeapons = false;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                    Console.Clear();
+                                }
+
+                            }
+                            else if (playerTextInput.ToLower() == "exit" || playerTextInput.ToLower() == "stop" || playerTextInput.ToLower() == "leave") 
+                            {
+                                checkingWeapons = false;
+                            }
+                            else
+                            {
+                                Console.WriteLine("You can either 'inspect' or 'upgrade' the weapon. Try again, inputting a valid term.");
+                                Console.WriteLine("If you want to exit the program, type 'exit'");
+                                Console.WriteLine("Once you have read this, press enter until you see an 'Input Field' to enter the relevant inputs.");
+                                Console.ReadLine();
                             }
                         }
-                        //Opdracht 9 End
-                        programStart = false;
+
+                            //Opdracht 9 End
+                            programStart = false;
                         break;
                     case "task10":
                     case "task 10":
