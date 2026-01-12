@@ -179,7 +179,7 @@ namespace MeddaillesOpdrachten
                     case "opdracht8":
                     case "opdracht 8":
                     case "8":
-                        //Opdracht8 Start                       //Complete [I made it friendly for user input. You can choose a name, level, and the amount of lives you want.]
+                        //Opdracht8 Start                       //Complete [I made it friendly for user input. You can choose a name, level, and the amount of lives you want through a set difficulty value.]
                                                                 //It prints everything at the end, showing name, level and lives.
                                                                 //I have also added an extra part where it prints everything in a for loop.
                                                                 //This shows that I can pull both the values from the Class/Constructor as well as from the variables in the List above.
@@ -291,6 +291,9 @@ namespace MeddaillesOpdrachten
                                                                 //(This task is similar to 8, but constructing weapons instead of characters.)
                                                                 //(The goals are similar, they just require different stats.)
                                                                 //(The main idea is that the weapon has an upgrade level.)
+
+                                                                //I have run into a wall where I cannot pull the variables from my objects in the "Weapons" class.
+                                                                //I'm currently reading up on that, until then I'll focus on fixing task 2 and task 4 to turn them in.
 
                         foreach (int item in itemIDList) 
                         {

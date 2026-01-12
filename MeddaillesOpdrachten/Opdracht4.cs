@@ -43,7 +43,6 @@ namespace MeddaillesOpdrachten
 
         private int _userYear;
         private int _userMonth;
-        private string _userMonthText;
         private int _userDay;
         private int _userDayRaw;
         private string _userYearInput;
@@ -54,9 +53,9 @@ namespace MeddaillesOpdrachten
         private bool _currentLeapYear = false;
         private bool _userLeapYear = false;
         private int _normalYearMaxDays = 365;
-        private int _leapYearMaxDays = 366;
+        private int _leapYearMaxDays = 366; //Leftover value from when I was trying to add leap years into the functionality for fun. I plan on getting back to it in the future.
         private int[] _dayInMonthValues = { 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334 };
-        private int[] _dayInMonthValuesLeap = { 0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335 };
+        private int[] _dayInMonthValuesLeap = { 0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335 }; //Another set of leftover values.
 
 
         private bool _validYearInput = false;
