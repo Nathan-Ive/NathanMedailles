@@ -12,7 +12,7 @@ namespace MeddaillesOpdrachten
 
 
         
-        private List<string> _monthListCap = new List<string>()
+        private List<string> _monthList = new List<string>()
         { 
             "January",
             "February",
@@ -51,20 +51,20 @@ namespace MeddaillesOpdrachten
         private string _userDayInput;
         private int _userAge;
 
-        private Boolean _currentLeapYear = false;
-        private Boolean _userLeapYear = false;
+        private bool _currentLeapYear = false;
+        private bool _userLeapYear = false;
         private int _normalYearMaxDays = 365;
         private int _leapYearMaxDays = 366;
         private int[] _dayInMonthValues = { 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334 };
         private int[] _dayInMonthValuesLeap = { 0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335 };
 
 
-        private Boolean _validYearInput = false;
-        private Boolean _validMonthInput = false;
-        private Boolean _validDayInput = false;
-        private Boolean _userIsItFebruary = false; //Checks to see if it's february, which has 28 or 29 days depending on whether or not it's a leap year.
-        private Boolean _userMonthHighDays = false; //Months that contain 31 days {January[0], March[2], May[4], July[6], August[7], October[9], December[11]}
-        private Boolean _userMonthLowDays = false; //Months that contain 30 days {April[3], June[5], September[8], November[10]}
+        private bool _validYearInput = false;
+        private bool _validMonthInput = false;
+        private bool _validDayInput = false;
+        private bool _userIsItFebruary = false; //Checks to see if it's february, which has 28 or 29 days depending on whether or not it's a leap year.
+        private bool _userMonthHighDays = false; //Months that contain 31 days {January[0], March[2], May[4], July[6], August[7], October[9], December[11]}
+        private bool _userMonthLowDays = false; //Months that contain 30 days {April[3], June[5], September[8], November[10]}
 
 
         public void Start()
@@ -118,7 +118,7 @@ namespace MeddaillesOpdrachten
 
                 if (Int32.TryParse(_userMonthInput, out _userMonth) && _userMonth > 0 && _userMonth <= _monthMaxValue) 
                 {
-                    _userMonthInput = _monthListCap[_userMonth - 1];
+                    _userMonthInput = _monthList[_userMonth - 1];
 
                     switch (_userMonthInput) {
                         case "January":
@@ -215,13 +215,13 @@ namespace MeddaillesOpdrachten
                 if (_currentDayRaw <= _normalYearMaxDays)
                 {
                     Console.WriteLine("The current year is: Year " + _currentYear);
-                    Console.WriteLine("The current month is: Month " + _currentMonth + " - Which is " + _monthListCap[_currentMonth - 1]);
+                    Console.WriteLine("The current month is: Month " + _currentMonth + " - Which is " + _monthList[_currentMonth - 1]);
                     Console.WriteLine("The current day is: Day " + _currentDay + " - that's day " + _currentDayRaw + " of the year.");
                     Console.WriteLine("");
                     Console.WriteLine("");
                     Console.WriteLine("");
                     Console.WriteLine("Your birth year is: Year " + _userYear);
-                    Console.WriteLine("The month of your birth is: Month " + _userMonth + " - Which is " + _monthListCap[_userMonth - 1]);
+                    Console.WriteLine("The month of your birth is: Month " + _userMonth + " - Which is " + _monthList[_userMonth - 1]);
                     Console.WriteLine("The day of your birth is: Day " + _userDay + " - Which is day " + _userDayRaw + " of that year.");
                     Console.ReadLine();
                     Console.Clear();
@@ -277,47 +277,32 @@ namespace MeddaillesOpdrachten
 
 
             }
-            else
-            {
-                Console.Clear();
-                _currentDayRaw = _currentDay + _dayInMonthValuesLeap[_currentMonth - 1];
-                _userDayRaw = _userDay + _dayInMonthValuesLeap[_userMonth - 1];
-
-
-                if (_currentDayRaw <= _leapYearMaxDays)
-                {
-                    Console.WriteLine("The current year is: Year " + _currentYear);
-                    Console.WriteLine("The current month is: Month " + _currentMonth + " - Which is " + _monthListCap[_currentMonth - 1]);
-                    Console.WriteLine("The current day is: Day " + _currentDay + " - that's day " + _currentDayRaw + " of the year.");
-                    Console.WriteLine("");
-                    Console.WriteLine("");
-                    Console.WriteLine("");
-                    Console.WriteLine("Your birth year is: Year " + _userYear);
-                    Console.WriteLine("The month of your birth is: Month " + _userMonth + " - Which is " + _monthListCap[_userMonth - 1]);
-                    Console.WriteLine("The day of your birth is: Day " + _userDay + " - Which is day " + _userDayRaw + " of that year.");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Console.WriteLine("According to the information you have given, your age is calculated at " + (_currentYear - _userYear) + " years old.");
-                }
-                else
-                {
-                    Console.WriteLine("You have somehow input a value that allowed you to exceed the maximum amount of days within a leap year, please restart the program.");
-                }
-
-            }
-
-
             
             Console.ReadLine();
+            Console.Clear();
             if (_userAge >= 18)
             {
-
-                Console.Clear();
                 Console.WriteLine($"With your age being {_userAge}, you are allowed to vote.");
+
+                if (_userAge >= 18 && _userAge <= 25)
+                {
+                    Console.WriteLine("As a young adult, this puts you within the same age group as the creator of this code at the time it was made!");
+                }
+                else if (_userAge > 25 && _userAge <= 50) 
+                {
+                    Console.WriteLine("Well into adulthood, good job. Hopefully everything is going well!");
+                }
+                else if (_userAge > 50 && _userAge <= 70) 
+                {
+                    Console.WriteLine("Getting up there in age. You likely have issues with back pain, take a well deserved rest!");
+                }else if (_userAge > 70) 
+                {
+                    Console.WriteLine("Respect for elders! Maybe the many years of life have made you a wise person?");
+                }
+
             }
             else 
             {
-                Console.Clear();
                 Console.WriteLine($"Since you're younger than 18, being {_userAge} years old, you cannot vote yet.");
             }
 
