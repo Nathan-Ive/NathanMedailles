@@ -498,8 +498,16 @@ namespace MeddaillesOpdrachten
                                     Console.Clear();
                                 }
 
+                            }else if (playerTextInput.ToLower() == "show all" || playerTextInput.ToLower() == "showall") 
+                            {
+                                foreach(int item in itemIDList)
+                                {
+                                    weapons[item].ShowStats();
+                                }
+                                Console.ReadLine();
+                                Console.Clear();
                             }
-                            else if (playerTextInput.ToLower() == "exit" || playerTextInput.ToLower() == "stop" || playerTextInput.ToLower() == "leave") 
+                            else if (playerTextInput.ToLower() == "exit" || playerTextInput.ToLower() == "stop" || playerTextInput.ToLower() == "leave")
                             {
                                 checkingWeapons = false;
                             }
